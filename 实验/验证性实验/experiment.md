@@ -55,8 +55,11 @@
 > 使用 `ipconfig/all` 查看旁边计算机的网络配置，看看有什么异同。
 
 在旁边一台计算机上使用Cmder程序并输入`ipconfig/all`后显示结果如下：
+
 ![](./picture/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-01-07%20190307.png)
+
 ![](./picture/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-01-07%20190423.png)
+
 可以看到在因为电脑本身的配置不同，在适配器的数量方面会有所异同，但是基本的各项参数等是没有什么变化的。
 
 #### 问题
@@ -68,11 +71,13 @@
 
 ## ping
 `PING`（Packet Internet Groper），因特网包探索器，用于测试网络连接量的程序 。ping 是工作在 TCP/IP 网络体系结构中应用层的一个服务命令， 主要是向特定的目的主机发送 ICMP（Internet Control Message Protocol 因特网报文控制协议）Echo 请求报文，测试目的站是否可达及了解其有关状态。
+
 #### 实作一
 > 要测试到某计算机如 重庆交通大学 Web 服务器的连通性，可以使用 `ping www.cqjtu.edu.cn` 命令，也可直接使用 IP 地址。
 >请掌握使用该命令后屏幕显示的反馈回来信息的意思，如：TTL、时间等。
 
 ![](./picture/ping/ping_cqjtu.jpg)
+
 可以看到直接使用ping命令以后，我们从当前的ip地址连续向重庆交通大学WEB网址的ip地址发送了四次数据包，而对方也依次向我们进行了四次同样大小数据包的回复。
 
 在对方的回复其中：
@@ -94,15 +99,23 @@
 实际使用：
 1. -l size
 改变发送数据包的大小为64
+
 ![](./picture/ping/%E6%94%B9%E5%8F%98%E6%95%B0%E6%8D%AE%E5%8C%85%E5%A4%A7%E5%B0%8F.jpg)
+
 可以看到字节的大小改变为了64
+
 2. -i TTL
 改变发送数据包的TTL
+
 ![](./picture/ping/%E6%94%B9%E5%8F%98TTL%E5%A4%A7%E5%B0%8F.jpg)
+
 可以看到TTL设置为16时可以成功发送数据包，而设置为15时显示TTL传输中过期
 3. -n count
+
 改变发送的数据包的数量
+
 ![](./picture/ping/%E6%94%B9%E5%8F%98%E6%95%B0%E6%8D%AE%E5%8C%85%E6%95%B0%E9%87%8F.jpg)
+
 可以看到成功发送了5个数据包
 
 #### TroubleShooting
@@ -144,6 +157,7 @@ CMD中使用ipconfig命令可以查看自己当前计算器的默认网关，尝
 > `ping.pe`这个网站可以探测从全球主要的ISP到某站点如 https://qige.io 的线路状态，当然也包括各线路到该主机的路由情况。请使用浏览器访问 http://ping.pe/qige.io 进行了解。
 
 ![](./picture/Tracert/ping.pe(qige.io).jpg)
+
 如图所示，
 
 #### 问题一
@@ -169,7 +183,9 @@ CMD中使用ipconfig命令可以查看自己当前计算器的默认网关，尝
 > 然后 `ping` 一下你旁边的计算机 IP（注意，需保证该计算机的 IP 没有出现在 arp 缓存中，或者使用 `arp -d *` 先删除全部缓存），再次查看缓存，你会发现一些改变，请作出解释。
 
 运行`arp -a`命令：
+
 ![](./picture/ARP/arp-a.jpg)
+
 可以看到缓存的是一些包括网关在内的使用较为频繁的地址。
 
 `ping`旁边的计算机ip
@@ -192,6 +208,7 @@ ping成功了会收到返回消息将旁边计算机的IP地址和物理地址�
 2. `netsh -c "i i" add neighbors [Idx] [IP地址] [mac地址]`修改指定IP的mac
 
 ![](./picture/ARP/netch%E4%BF%AE%E6%94%B9.jpg)
+
 可以看到经过上述操作已经成功将`192.168.0.1`修改为了静态类型
 
 #### TroubleShooting
@@ -217,6 +234,7 @@ ping成功了会收到返回消息将旁边计算机的IP地址和物理地址�
 > 一般地，我们自动获取的网络配置信息包括：IP 地址、子网掩码、网关 IP 以及 DNS 服务器 IP 等。使用 `ipconfig/release` 命令释放自动获取的网络配置，并用 `ipconfig/renew` 命令重新获取，了解 DHCP 工作过程和原理。
 
 ![](./picture/DHCP/ip-release.jpg)
+
 ![](./picture/DHCP/ip-renew.jpg)
 
 #### TroubleShooting
