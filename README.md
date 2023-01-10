@@ -1,4 +1,5 @@
 ### BCMX's 计算机网络实验报告
+请点击相应的实验查看其中的md文件
 
 <!--
 **autismhealer/autismhealer** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
